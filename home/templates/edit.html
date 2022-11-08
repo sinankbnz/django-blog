@@ -1,0 +1,23 @@
+{% extends 'theme.html' %}
+{% load crispy_forms_filters %}
+{% block content %}
+
+{% load static %}
+
+    <div class="container py-5 px-2 bg-white">
+    
+        <main class="row blog-item px-3 pb-5">   
+                      
+            <div class="col-md-7">
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                   {{ form|crispy }} 
+                    <input type="submit" class="btn btn-success btn-block" value="Update"/>
+                </form>
+            </div>
+            </div>
+           
+    </div>
+    <br>
+
+    {% endblock content %}

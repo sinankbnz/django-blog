@@ -1,0 +1,30 @@
+{% extends 'theme.html' %}
+{% load crispy_forms_filters %}
+{% block content %}
+   
+    <div class="container py-5 px-2 bg-white">
+                <div class="row px-4">
+                    <div class="col-12">
+                        <img class="img-fluid mb-2" src="{{post.image.url}}" alt="Image">
+                        <h2 class="mb-3 font-weight-bold" style="text-transform: capitalize">{{post.title}}</h2>
+                        <div class="d-flex">
+                            <p class="mr-3 text-muted"><i class="fa fa-calendar-alt"></i>{{post.created_at}}</p>
+                            <p class="mr-3 text-muted"><i class="fa fa-folder"></i> Web Design</p>
+                            <p class="mr-3 text-muted"><i class="fa fa-comments"></i> 15 Comments</p>
+                        </div>
+                        <p>{{post.content}}</p>
+                    </div>
+                    <br>
+                    <br>
+                     {% if user.is_authenticated %}
+                     <div>
+                            <form action="{% url 'delete' post.id %}" method="POST" class="d-inline-block">
+                            {% csrf_token %}
+                                <a href="{% url 'edit' post.id %}" class="btn btn-warning">Edit</a>
+                                <input type="submit" class="btn btn-danger" value="Delete"/>
+                            </form>
+                        </div>    
+                        {% endif %}
+                    <br>
+                    <br>
+    {% endblock content %}

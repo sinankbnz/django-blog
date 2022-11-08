@@ -1,0 +1,16 @@
+{% extends 'theme.html' %}
+{% load crispy_forms_filters %}
+{% block content %}
+    <div class="container bg-white pt-5">
+        <main class="row blog-item px-3 pb-5">            
+            <div class="col-md-7">
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <input type="submit" class="btn btn-success btn-block" value="Submit"/>
+                </form>
+            </div>
+            </div>
+        </main>
+    </div>
+    {% endblock content %}

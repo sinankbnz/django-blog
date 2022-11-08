@@ -1,0 +1,29 @@
+{% extends "theme.html" %}
+{% load crispy_forms_filters %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div style="margin-top:100px; margin-left:400px;">
+    <h1 style="margin-bottom:30px; margin-left:100px;">LOGIN</h1>
+    
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form.as_p}}        
+        <div style="margin-top:50px; margin-left:150px;">
+        <button type="Submit" style="background-color: #00cc99; border-radius: 8px;">Login</button>        <div style="margin-top:200px;">        
+        </div>
+        </div>
+    </form>
+
+</div>
+</body>
+</html>
+{% endblock content %}
